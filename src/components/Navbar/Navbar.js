@@ -8,7 +8,7 @@ const Navbar = (props) => {
   return(
     <nav>
       <img src={piePic} alt="Pie Picture" />
-      <Logout />
+      <Logout logout={props.logout}/>
     </nav>
   )
 }

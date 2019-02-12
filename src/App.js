@@ -13,17 +13,21 @@ class App extends Component {
   }
 
   viewConductor = () => {
-    return this.state.sessionToken !== undefined ? <Pies/> : <Auth tokenHandler={this.storeSessionToken}/>
+    return this.state.sessionToken !== undefined ? <Pies/> : <Auth storeSessionToken={this.storeSessionToken}/>
   }
 
   storeSessionToken = (token) => {
     this.setState({sessionToken: token})
   }
 
+  removeSessionToken = () => {
+    this.setState({sessionToken: undefined})
+  }
+
   render() {
     return (
       <React.Fragment>
-        <Navbar/>
+        <Navbar logout={this.removeSessionToken}/>
         {this.viewConductor()}
       </React.Fragment>
     );
